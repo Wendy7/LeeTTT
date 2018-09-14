@@ -19,18 +19,25 @@ S and J will consist of letters and have length at most 50.
 The characters in J are distinct.
  */
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class JewelsAndStones771 {
 	
 	public static int numJewelsInStones(String J, String S) {
         
-        char[] j = J.toCharArray();
+		char[] j = J.toCharArray();
 		char[] s = S.toCharArray();
 		int result = 0;
 		
+		Set<Character> jSet = new HashSet<Character>();
+		
+		for(char c : j) {
+			jSet.add(c);
+		}		        		
+		
 		for(char c : s) {
-			if (Arrays.asList(j).contains(c)) {
+			if (jSet.contains(c)) {
 				result = result + 1;
 			}
 			
