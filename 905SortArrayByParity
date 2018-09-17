@@ -1,0 +1,18 @@
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        
+        int[] odd = new int[5000];
+        
+        for (int a : A){
+            if (a % 2 != 0) {
+                odd.add(a);
+                A.remove(a);
+            }
+        }
+        for (int o : odd){
+            A.add(o);
+        }  
+        
+        return A;        
+    }
+}
